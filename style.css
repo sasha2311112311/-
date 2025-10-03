@@ -1,0 +1,366 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --tiktok-gradient: linear-gradient(45deg, #000000, #333333, #69C9D0, #EE1D52);
+    --telegram-gradient: linear-gradient(45deg, #0088cc, #00a8ff);
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: #fff;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.gradient-bg {
+    width: 100%;
+    height: 100%;
+    background: var(--primary-gradient);
+    opacity: 0.9;
+}
+
+.floating-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    animation: float 6s ease-in-out infinite;
+}
+
+.shape-1 {
+    width: 80px;
+    height: 80px;
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    width: 120px;
+    height: 120px;
+    top: 60%;
+    left: 80%;
+    animation-delay: 2s;
+}
+
+.shape-3 {
+    width: 60px;
+    height: 60px;
+    top: 80%;
+    left: 20%;
+    animation-delay: 4s;
+}
+
+.shape-4 {
+    width: 100px;
+    height: 100px;
+    top: 20%;
+    left: 70%;
+    animation-delay: 1s;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Профиль */
+.profile-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 25px;
+    padding: 40px;
+    text-align: center;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transform: translateY(0);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.profile-image {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 25px;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #667eea;
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+.status-dot {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 25px;
+    height: 25px;
+    background: #00ff00;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 2px 10px rgba(0, 255, 0, 0.5);
+    animation: pulse 2s infinite;
+}
+
+.username {
+    font-size: 2.5em;
+    font-weight: 800;
+    margin-bottom: 15px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.user-bio {
+    font-size: 1.1em;
+    color: #666;
+    line-height: 1.6;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Социальные сети */
+.social-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 25px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.section-title {
+    font-size: 2em;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.social-card {
+    display: flex;
+    align-items: center;
+    padding: 20px 25px;
+    border-radius: 15px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    background: rgba(255, 255, 255, 0.8);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.social-card:hover::before {
+    left: 100%;
+}
+
+.social-card:hover {
+    transform: translateX(10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Стили для соцсетей */
+.tiktok { border-left: 5px solid #000000; }
+.tiktok:hover { background: var(--tiktok-gradient); color: white; }
+
+.telegram { border-left: 5px solid #0088cc; }
+.telegram:hover { background: var(--telegram-gradient); color: white; }
+
+.social-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    margin-right: 20px;
+    transition: all 0.3s ease;
+}
+
+.social-card:hover .social-icon {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.social-info {
+    flex: 1;
+}
+
+.social-info h3 {
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.social-info p {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.social-card:hover .social-info p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.social-handle {
+    font-size: 0.85em;
+    color: #888;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.social-card:hover .social-handle {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.social-arrow {
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    font-size: 1.2em;
+}
+
+.social-card:hover .social-arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Футер */
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-content p {
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+
+/* Анимации */
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    33% { transform: translateY(-20px) rotate(5deg); }
+    66% { transform: translateY(10px) rotate(-5deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { 
+        opacity: 1; 
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.8; 
+        transform: scale(1.1);
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .profile-section,
+    .social-section {
+        padding: 30px 25px;
+    }
+    
+    .username {
+        font-size: 2em;
+    }
+    
+    .social-card {
+        padding: 15px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-section,
+    .social-section {
+        padding: 25px 20px;
+    }
+    
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .username {
+        font-size: 1.8em;
+    }
+    
+    .social-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .social-icon {
+        margin-right: 0;
+    }
+}
